@@ -16,7 +16,7 @@ Entre os benefícios do TinyML, podemos citar:
 * *Privacidade*: Ter os dados protegidos é um requisito extremamente desejado e importante que aplicações de TinyML oferecem. O fato das aplicações não persistem os dados e o controle de recebimento ficar a cargo da nuvem torna essa técnica extremamente segura.
 
 ## Objetivo do projeto
-- :dart: Desejamos receber como entrada valores de tensão que alimentam um display de 7 segmentos &ndash; ou seja, cada entrada contém 7 tensões, uma para cada pino &ndash; e **prever** a saída correspondente em binário.
+:dart: Desejamos receber como entrada valores de tensão que alimentam um display de 7 segmentos &ndash; ou seja, cada entrada contém 7 tensões, uma para cada pino &ndash; e **prever** a saída correspondente em binário.
 
 ### Pipeline
 
@@ -29,6 +29,7 @@ Inicialmente, coletamos os dados, que se trata de uma base de dados com 3000 amo
 
 #### Treinamento da rede
 Para realizar o treinamento foi usada uma MLP (*Multilayer Perceptron*) com 3 camadas. As funções de ativação usadas foram a tangente hiperbólica e a sigmóide. A função de otimização ADAM, que é um método de descida gradiente estocástico que se baseia na estimativa adaptativa de momentos de primeira e segunda ordem, e como função de perda a entropia cruzada. Mais detalhes sobre essa implementação podem ser vistos aqui [![Jupyter](https://img.shields.io/badge/-Notebook-191A1B?style=flat-square&logo=jupyter)](https://github.com/aryelmedeiros/digital_systems/blob/main/redes_neurais_embarcadas/Sistemas_Digitais_Trabalho_final.ipynb).
+
 O resultado do treinamento pode ser visto na figura abaixo:
 <p align='center'>
 <img width="500" src='./contents/results.png'>
@@ -42,7 +43,7 @@ Importamos os dados de treino, pesos e *bias* para o ambiente de programação d
 <p align='center'>
 <img width="500" src='./contents/Circuito-TinkerCAD.png'>
 </p>
-O projeto pode ser consultado aqui: [`Tinkercad`](https://www.tinkercad.com/things/97xwU8PCmQD-glorious-jaban/editel?sharecode=_bOez_P5cmP0_7xw_ZJOTKmOZoCIdq-miHgJm79dRnU)
+O projeto pode ser consultado aqui: [Tinkercad](https://www.tinkercad.com/things/97xwU8PCmQD-glorious-jaban/editel?sharecode=_bOez_P5cmP0_7xw_ZJOTKmOZoCIdq-miHgJm79dRnU).
 
 # Referências 
 
