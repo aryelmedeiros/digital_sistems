@@ -25,10 +25,22 @@ Entre os benefícios do TinyML, podemos citar:
 </p>
 
 #### Coleta e segregação
-Inicialmente, coletamos os dados, que se trata de uma base de dados com 3000 amostras de entradas de tensão e 3000 amostras como saídas em BCD (*Binary-coded decimal*) correspondentes à entrada. Em seguida a base é dividida em treino (80%) e teste (20%).
+Inicialmente, fizemos uso de uma base de dados com 3000 conjuntos de 7 amostras de entradas de tensão referentes ao controle da exibição de um determinado dígito em um display de 7 segmentos e 3000 amostras como saídas em BCD (*Binary-coded decimal*) correspondentes ao digito exibido no display. Uma vez importada a base, ela é dividida em 2 subconjuntos: um para `treino(80%)` e outro para `teste(20%)` da rede.
 
 #### Treinamento da rede
-Para realizar o treinamento foi usada uma MLP (*Multilayer Perceptron*) com 3 camadas. As funções de ativação usadas foram a tangente hiperbólica e a sigmóide. A função de otimização ADAM, que é um método de descida gradiente estocástico que se baseia na estimativa adaptativa de momentos de primeira e segunda ordem, e como função de perda a entropia cruzada. Mais detalhes sobre essa implementação podem ser vistos aqui [![Jupyter](https://img.shields.io/badge/-Notebook-191A1B?style=flat-square&logo=jupyter)](https://github.com/aryelmedeiros/digital_systems/blob/main/redes_neurais_embarcadas/Sistemas_Digitais_Trabalho_final.ipynb).
+Para realizar o treinamento foi usada uma MLP (*Multilayer Perceptron*) com 3 camadas. A entrada da rede consiste em 7 níveis de tensão que variam de 0 a 5V e representam os sinais para controlar um display de 7 segmentos, cada sinal um dos segmentos).  
+
+A camada de entrada da rede contém `7 neurônios` que recebem os valores de tensão, para essa camada foi utilizada a função de ativação `tangente hiperbólica.` 
+
+Para a camada oculta foram feitos alguns testes com números de neurônios diferentes e por fim foi decidido usar a camada com `15 neurônios` e com a função de ativação da `tangente hiperbólica.` 
+
+A camada de saída contém  `4 neurônios` que representam justamente cada um dos dígitos do código BCD equivalente ao número apresentado no display de 7 segmentos. Para aumentar a acurácia, a função de ativação escolhida para essa camada foi a `sigmoid`, já que ela é a  melhor opção para dados que estejam entre 0 ou 1.
+
+<p align='center'>
+<img width="300" src='./contents/display.tflite.png'>
+</p>
+
+A função de otimização utilizada no treinamento da rede foi a ADAM, que é um método de descida gradiente estocástico que se baseia na estimativa adaptativa de momentos de primeira e segunda ordem, e como função de perda a entropia cruzada binária. Mais detalhes sobre essa implementação podem ser vistos aqui [![Jupyter](https://img.shields.io/badge/-Notebook-191A1B?style=flat-square&logo=jupyter)](https://github.com/aryelmedeiros/digital_systems/blob/main/redes_neurais_embarcadas/Sistemas_Digitais_Trabalho_final.ipynb).
 
 O resultado do treinamento pode ser visto na figura abaixo:
 <p align='center'>
@@ -36,13 +48,21 @@ O resultado do treinamento pode ser visto na figura abaixo:
 </p>
 
 #### Guardar pesos e *bias*
-Armazenamos os pesos e *bias* da rede treinada. Este é um passo importante para fazer a integração da rede neural treinada com o dispositivo.
+Armazenamos os pesos e *bias* do modelo darede treinada. Este é um passo importante para fazer a integração da rede neural treinada com o dispositivo.
 
 #### Embarcar
-Importamos os dados de treino, pesos e *bias* para o ambiente de programação do microcontrolador. Para representar a saída em BCD usamos 4 leds. O dispositivo tem a seguinte configuração:
+Importamos os dados de treino, pesos e *bias* para o ambiente de programação do microcontrolador, esses dados poderiam muito bem estar em um arquivo separado `.h`, mas como o ambiente de desenvolimento do `TinkerCAD` não dá suporte para isso, colocamos essas predefinições junto to arquivo contendo a main.
+
+Para o calulo dos valores preditos da rede foi criada uma função "predict", que recebe 7 valores de entrada e aplica todos os pesos e bias, assim como faz o calculo saída da função de ativação.
+
+Além de importar os pesos e bias para cada camada, tambem foi criada uma matriz que contém um subconjunto do conjunto de teste da rede, esse novo subconjunto será usado como entrada da função de predição criada. 
+
+Por fim, deficimos usar 4 leds para que representar a saída em BCD, de maneira que cada led representa um digito do código. A cada segundo um novo exemplo de entrada do conjunto de teste é passado para função de predição e o resultado é apresentado nos leds. O sistema tem a seguinte configuração:
+
 <p align='center'>
 <img width="500" src='./contents/Circuito-TinkerCAD.png'>
 </p>
+
 O projeto pode ser consultado no [Tinkercad](https://www.tinkercad.com/things/97xwU8PCmQD-glorious-jaban/editel?sharecode=_bOez_P5cmP0_7xw_ZJOTKmOZoCIdq-miHgJm79dRnU).
 
 # Referências 
