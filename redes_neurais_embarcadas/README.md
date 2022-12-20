@@ -43,8 +43,13 @@ Importamos os dados de treino, pesos e *bias* para o ambiente de programação d
 <p align='center'>
 <img width="500" src='./contents/Circuito-TinkerCAD.png'>
 </p>
-O projeto pode ser consultado aqui: [Tinkercad](https://www.tinkercad.com/things/97xwU8PCmQD-glorious-jaban/editel?sharecode=_bOez_P5cmP0_7xw_ZJOTKmOZoCIdq-miHgJm79dRnU).
+O projeto pode ser consultado no [Tinkercad](https://www.tinkercad.com/things/97xwU8PCmQD-glorious-jaban/editel?sharecode=_bOez_P5cmP0_7xw_ZJOTKmOZoCIdq-miHgJm79dRnU).
 
 # Referências 
+
+[Machine Learning Meets Embedded Systems](https://towardsdatascience.com/an-introduction-to-tinyml-4617f314aa79). Arun, Towards Data Science, Novembro de 2020.
+
+[“What is TinyML, and why does it matter?”](https://towardsdatascience.com/what-is-tinyml-and-why-does-it-matter-f5b164766876). Jair Ribeiro, Towards Data Science, Dezembro de 2022.
+
 
 [Global Shipments of TinyML Devices to Reach 2.5 Billion by 2030](https://www.prnewswire.com/news-releases/global-shipments-of-tinyml-devices-to-reach-2-5-billion-by-2030--301123076.html). ABI Research, Setembro de 2020. 
