@@ -28,7 +28,7 @@ Entre os benefícios do TinyML, podemos citar:
 Inicialmente, coletamos os dados, que se trata de uma base de dados com 3000 amostras de entradas de tensão e 3000 amostras como saídas em BCD (*Binary-coded decimal*) correspondentes à entrada. Em seguida a base é dividida em treino (80%) e teste (20%).
 
 #### Treinamento da rede
-Para realizar o treinamento foi usada uma MLP (*Multilayer Perceptron*) com 3 camadas. As funções de ativação usadas foram a tangente hiperbólica e a sigmóide. A função de otimização ADAM, que é um método de descida gradiente estocástico que se baseia na estimativa adaptativa de momentos de primeira e segunda ordem, e como função de perda a entropia cruzada. Mais detalhes sobre essa implementação podem ser vistos aqui [![Jupyter](https://img.shields.io/badge/-Notebook-191A1B?style=flat-square&logo=jupyter)](https://github.com/ivanovitchm/datastructure/blob/main/lessons/week_01/Python_Tutorial.ipynb).
+Para realizar o treinamento foi usada uma MLP (*Multilayer Perceptron*) com 3 camadas. As funções de ativação usadas foram a tangente hiperbólica e a sigmóide. A função de otimização ADAM, que é um método de descida gradiente estocástico que se baseia na estimativa adaptativa de momentos de primeira e segunda ordem, e como função de perda a entropia cruzada. Mais detalhes sobre essa implementação podem ser vistos aqui [![Jupyter](https://img.shields.io/badge/-Notebook-191A1B?style=flat-square&logo=jupyter)](https://github.com/aryelmedeiros/digital_systems/blob/main/redes_neurais_embarcadas/Sistemas_Digitais_Trabalho_final.ipynb).
 O resultado do treinamento pode ser visto na figura abaixo:
 <p align='center'>
 <img width="500" src='./contents/results.png'>
