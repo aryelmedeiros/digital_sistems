@@ -20,6 +20,10 @@ Entre os benefícios do TinyML, podemos citar:
 
 ### Pipeline
 
+<p align='center'>
+<img width="500" src='./contents/pipeline.png'>
+</p>
+
 #### Coleta e segregação
 Inicialmente, coletamos os dados, que se trata de uma base de dados com 3000 amostras de entradas de tensão e 3000 amostras como saídas em BCD (*Binary-coded decimal*) correspondentes à entrada. Em seguida a base é dividida em treino (80%) e teste (20%).
 
